@@ -12,16 +12,26 @@ function Nav() {
   return (
     <nav>
       <div className="navContainer">
-        <Link to="/">Home</Link>
+        <div className="tab">
+          <Link to="/">Home</Link>
+        </div>
         &nbsp; | &nbsp;
-        <Link to="/jobpostpage">Job Post</Link>
+        <div className="tab">
+          <Link to="/jobpostpage">Job Post</Link>
+        </div>
         &nbsp; | &nbsp;
-        <Link to="/jobfeed">Job Feed</Link>
-      </div>
-      <div>
-        <Link to="" onClick={handleLogOut}>
-          Sign Out
-        </Link>
+        <div className="tab">
+          <Link to="/jobfeed">Job Feed</Link>
+        </div>
+        &nbsp; | &nbsp;
+        <div className="tab">
+          <Link to="/profilepage">Profile</Link>
+        </div>
+        <div className="tab">
+          <Link to="" onClick={handleLogOut}>
+            Sign Out
+          </Link>
+        </div>
       </div>
     </nav>
   );

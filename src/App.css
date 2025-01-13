@@ -40,3 +40,21 @@
 .read-the-docs {
   color: #888;
 }
+.jobList {
+  border: 1 solid rgb(255, 255, 255);
+}
+
+.profileContainer {
+  border: 1px solid white;
+}
+nav {
+  border: 1px solid white;
+}
+.navContainer {
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+}
+.tab {
+  border: 1px solid white;
+}

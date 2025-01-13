@@ -24,7 +24,10 @@ function App() {
           <Routes>
             <Route path="/jobfeed" element={<JobFeed />} />
             <Route path="/jobpostpage" element={<JobPostPage />} />
-            <Route path="/profilepage" element={<ProfilePage />} />
+            <Route
+              path="/profilepage"
+              element={<ProfilePage setUser={setUser} />}
+            />
           </Routes>
         </>
       ) : (

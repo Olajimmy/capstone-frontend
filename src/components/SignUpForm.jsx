@@ -42,7 +42,7 @@ function SignUpForm(props) {
   return (
     <>
       <h2>Sign Up to start using your own Calendar</h2>
-      <div>
+      <div className="jobList">
         <form autoComplete="off" onSubmit={handleSubmit}>
           <label>Display Name:</label>
           <input

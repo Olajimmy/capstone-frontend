@@ -229,7 +229,7 @@ function JobPostPage() {
         {entries.map((entry) => {
           return (
             <>
-              <li style={{ width: "80%" }}>
+              <li style={{ border: "1px solid white" }}>
                 {entry.jobType}: {entry.jobDescription} : {entry.payRange}
                 <button
                   onClick={(e) => {
