@@ -1,207 +1,101 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-//
 
 function JobFeed() {
   const [entries, setEntries] = useState([]);
-  const [moreEntries, setMoreEntries] = useState([]);
-
-  const [update, setUpdate] = useState("");
-  const [show, setShow] = useState(false);
+  const [moreDetails, setMoreDetails] = useState(null); // To store details of the clicked job
+  const [loadingState, setLoadingState] = useState(false); // Optional loading state
 
   const LOCAL_URL = `http://localhost:5050`;
-  //
 
   const getEntries = async () => {
-    console.log(`in getEntries`);
-    //fetch calendar entries from the back end
-    //aslo known as the api that i an creating
-    //this endpoint is:
-    // /api/calendar
-
+    setLoadingState(true); // Set loading to true before making API call
     try {
       const response = await axios.get(`${LOCAL_URL}/api/jobpost`);
-      console.log("response.data", response.data);
-      console.log("i got something");
       setEntries(response.data);
+      setLoadingState(false); // Set loading to false after API call is done
     } catch (err) {
       console.error(err);
+      setLoadingState(false); // Set loading to false in case of error
     }
   };
 
   useEffect(() => {
     getEntries();
-  }, [update]);
+  }, []);
 
-  const load = () => {
-    if (show === false) {
-      setShow(true);
+  const handleShowMoreDetails = async (id) => {
+    // Check if the clicked job already has details shown
+    if (moreDetails && moreDetails._id === id) {
+      setMoreDetails(null); // If same job is clicked, hide details
     } else {
-      setShow(false);
+      const selectedJob = entries.find((entry) => entry._id === id);
+      setMoreDetails(selectedJob); // Show the details of the clicked job
     }
   };
+
   const loading = () => {
-    return <h3>there dont seem to be an entries yet</h3>;
+    return <h3>No job entries available yet. Please check back later.</h3>;
   };
-
-  const handleMore = async () => {
-    console.log(`in handle more`);
-    //fetch calendar entries from the back end
-    //aslo known as the api that i an creating
-    //this endpoint is:
-    // /api/calendar
-
-    try {
-      const response = await axios.get(`${LOCAL_URL}/api/jobpost`);
-      console.log("response.data", response.data);
-      console.log("i got something");
-      setMoreEntries(response.data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-  //   //   useEffect(() => {
-  //     handleMore();
-  //   }, [update]);
 
   const loaded = () => {
     return (
-      <ul
-        style={{
-          listStyleType: "none",
-          display: "flex",
-          flexDirection: "column",
-          border: "1px solid white",
-        }}
-      >
-        {entries.map((entry) => {
-          return (
-            <>
-              <div>
-                <li style={{ width: "80%", border: "1px solid white" }}>
-                  {entry.jobType}: {entry.jobDescription} : {entry.payRange}
-                  <button
-                    onClick={(e) => {
-                      handleMore(e, entry._id);
-                    }}
-                  >
-                    Details Within
-                  </button>
-                  {moreEntries.map((newEntry) => {
-                    return (
-                      <>
-                        {newEntry._id === entry._id ? (
-                          <>
-                            ({" "}
-                            <li key={newEntry._id}>
-                              {newEntry.jobtype}: {newEntry.jobDescription}:
-                              {newEntry.payRange}
-                            </li>
-                            )
-                          </>
-                        ) : (
-                          <></>
-                        )}
-                      </>
-                    );
-                  })}
-                </li>
+      <div className="job-feed-container">
+        {entries.map((entry) => (
+          <div className="job-post" key={entry._id}>
+            <div className="job-info">
+              <h3>{entry.jobType}</h3>
+              <p>{entry.jobDescription}</p>
+              <p>
+                <strong>Pay Range:</strong> {entry.payRange}
+              </p>
+            </div>
+            <button
+              className="show-button"
+              onClick={() => handleShowMoreDetails(entry._id)}
+            >
+              {moreDetails && moreDetails._id === entry._id
+                ? "Hide Details"
+                : "Show More Details"}
+            </button>
+            {/* Conditionally render more details */}
+            {moreDetails && moreDetails._id === entry._id && (
+              <div className="extra-info">
+                <p>
+                  <strong>Job ID:</strong> {moreDetails._id}
+                </p>
+                <p>
+                  <strong>Job Type:</strong> {moreDetails.jobType}
+                </p>
+                <p>
+                  <strong>Job Description:</strong> {moreDetails.jobDescription}
+                </p>
+                <p>
+                  <strong>Pay Range:</strong> {moreDetails.payRange}
+                </p>
+                <p>
+                  <strong>Comment:</strong> {moreDetails.comments}
+                </p>
+                <p>
+                  <strong>Address:</strong> {moreDetails.businessAddress}
+                </p>
+                <p>
+                  <strong>Phone:</strong> {moreDetails.phone}
+                </p>
               </div>
-            </>
-          );
-        })}
-        <button onClick={load}>press</button>
-
-        {show === true ? (
-          <>
-            <button>apear</button>
-          </>
-        ) : (
-          <>nothing </>
-        )}
-      </ul>
+            )}
+          </div>
+        ))}
+      </div>
     );
   };
 
-  return <>{entries.length ? loaded() : loading()}</>;
+  return (
+    <div className="job-feed">
+      <h2>Job Listings</h2>
+      {loadingState ? loading() : loaded()}
+    </div>
+  );
 }
-//   const loading = () => {
-//     return <h3>No Job Entries yet</h3>;
-//   };
 
-//   const loaded = () => {
-//     return (
-//       <>
-//         <div>Job Feed Page</div>
-//         <ul
-//           style={{
-//             listStyleType: "none",
-//             display: "flex",
-//             flexDirection: "column",
-//             border: "1px solid white",
-//           }}
-//         >
-//           {entries.map((entry) => {
-//             return (
-//               <>
-//                 <li style={{ width: "80%" }}>
-//                   {entry.jobType}: {entry.jobDescription} : {entry.payRange}
-//                 </li>
-//               </>
-//             );
-//           })}
-//         </ul>
-//       </>
-//     );
-//   };
-
-//   return (
-//     <>
-//       <button onClick={loaded}>Refresh Feed</button>
-//       <div>{entries.length ? loaded() : loading()}</div>
-//     </>
-//   );
-// }
 export default JobFeed;
-
-//
-
-// const loaded = () => {
-//   return (
-//     <ul
-//       style={{
-//         listStyleType: "none",
-//         display: "flex",
-//         flexDirection: "column",
-//         border: "1px solid white",
-//       }}
-//     >
-//       {entries.map((entry) => {
-//         return (
-//           <>
-//             <li style={{ width: "80%" }}>
-//               {entry.jobType}: {entry.jobDescription} : {entry.payRange}
-//               <button
-//                 onClick={(e) => {
-//                   handleEdit(e, entry._id);
-//                 }}
-//               >
-//                 Edit
-//               </button>
-//               <button
-//                 onClick={(e) => {
-//                   handleSave(e, entry._id);
-//                 }}
-//               >
-//                 Save
-//               </button>
-//               <button onClick={(e) => handleDelete(e, entry._id)}>
-//                 Delete
-//               </button>
-//             </li>
-//           </>
-//         );
-//       })}
-//     </ul>
-//   );
-// };

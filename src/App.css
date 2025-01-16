@@ -1,60 +1,198 @@
 #root {
-  max-width: 1280px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
 .jobList {
   border: 1 solid rgb(255, 255, 255);
 }
 
 .profileContainer {
-  border: 1px solid white;
+  border: 1px solid black;
+  background-color: #01497c;
+  height: 500px;
 }
 nav {
-  border: 1px solid white;
+  border: 1px solid black;
 }
 .navContainer {
-  border: 1px solid white;
+  border: 1px solid black;
   display: flex;
   justify-content: center;
+  justify-content: space-evenly;
+  background-color: #014f86;
 }
 .tab {
-  border: 1px solid white;
+  border: 1px solid black;
+  background-color: rgb(4, 0, 5);
+}
+.mainHeader {
+  border: 1px solid black;
+  background-color: #34729e;
+}
+.footer {
+  border: 1px solid black;
+  background-color: #013a63;
+  height: 50px;
+}
+.profileImg {
+  border: 1px solid black;
+}
+.signUpMainContainer {
+  border: 1px solid black;
+  display: block;
+}
+.feed {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.profile-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-picture {
+  margin-right: 20px;
+}
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-details {
+  font-size: 16px;
+  color: #333;
+}
+
+.profile-details p {
+  margin: 8px 0;
+}
+
+.image-upload {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.image-upload input {
+  margin-bottom: 10px;
+}
+
+.image-upload button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.image-upload button:hover {
+  background-color: #0056b3;
+}
+/* General styles */
+.job-feed {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+.job-feed-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.job-post {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.job-info {
+  margin-bottom: 20px;
+}
+
+.job-info h3 {
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.job-info p {
+  color: #555;
+}
+
+.show-button {
+  align-self: flex-start;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.show-button:hover {
+  background-color: #0056b3;
+}
+
+.load-button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+.load-button:hover {
+  background-color: #218838;
+}
+
+.extra-info {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+}
+
+.extra-info p {
+  color: #333;
+  font-weight: bold;
 }

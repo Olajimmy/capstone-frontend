@@ -5,7 +5,7 @@ import JobFeed from "./pages/JobFeed";
 import JobPostPage from "./pages/JobPostPage";
 import ProfilePage from "./pages/ProfilePage";
 import Nav from "./components/Nav";
-
+import Footer from "./components/Footer";
 import "./App.css";
 import { getUser } from "./utilities/users-services";
 
@@ -14,7 +14,9 @@ function App() {
 
   return (
     <>
-      <h1>Capstone Project</h1>
+      <div className="mainHeader">
+        <h1>Capstone Project</h1>
+      </div>
 
       {user ? (
         <>
@@ -33,6 +35,7 @@ function App() {
       ) : (
         <AuthPage setUser={setUser} />
       )}
+      <Footer />
     </>
   );
 }
