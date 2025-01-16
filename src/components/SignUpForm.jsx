@@ -11,9 +11,11 @@ function SignUpForm(props) {
     email: "",
     password: "",
     confirm: "",
+    entryType: "", //entType || "None",
     img: "",
   });
   const [error, setError] = useState("");
+  const [entType, setEntType] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -23,11 +25,10 @@ function SignUpForm(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
-    //this is where we would eventually add this to our database
-    //but through utilities/user-services (soam making util function to handle api)
+
     try {
       //set this up to be able to add new users
-      const submitData = { ...formData };
+      const submitData = { ...formData, entryType: entType };
       delete submitData.confirm;
       console.log(submitData);
       const user = await signUp(submitData);
@@ -38,7 +39,9 @@ function SignUpForm(props) {
   };
 
   //
-
+  const handleTypeSelect = (e) => {
+    setEntType(e.target.value);
+  };
   //
   return (
     <>
@@ -88,9 +91,9 @@ function SignUpForm(props) {
             />
             <br />
             <label>How Can We Help?</label>
-            <select>
-              <option>I Need a Job</option>
-              <option>I Need a Worker</option>
+            <select value={entType} onChange={handleTypeSelect}>
+              <option value="employee">I Need a Job</option>
+              <option value="employer">I Need a Worker</option>
             </select>
 
             <br />

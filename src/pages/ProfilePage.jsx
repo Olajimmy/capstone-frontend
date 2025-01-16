@@ -82,6 +82,9 @@ function ProfilePage() {
             <p>
               <strong>User ID:</strong> {unique._id}
             </p>
+            <p>
+              <strong>Status:</strong> {unique.entryType}
+            </p>
           </div>
         </div>
 

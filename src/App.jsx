@@ -18,7 +18,7 @@ function App() {
         <h1>Capstone Project</h1>
       </div>
 
-      {user ? (
+      {user && user.entryType === "employer" ? (
         <>
           <Nav />
           <div>{user.name}</div>
@@ -32,8 +32,24 @@ function App() {
             />
           </Routes>
         </>
+      ) : user && user.entryType === "employee" ? (
+        <>
+          <Nav />
+          <div>{user.name}</div>
+          <div>Welcome</div>
+          <Routes>
+            <Route path="/jobfeed" element={<JobFeed />} />
+
+            <Route
+              path="/profilepage"
+              element={<ProfilePage setUser={setUser} />}
+            />
+          </Routes>
+        </>
       ) : (
-        <AuthPage setUser={setUser} />
+        <>
+          <AuthPage setUser={setUser} />
+        </>
       )}
       <Footer />
     </>

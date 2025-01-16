@@ -1,5 +1,7 @@
 import { Link } from "react-router";
 import { logOut } from "../utilities/users-services";
+import { getUser } from "../utilities/users-services";
+import { useState, useEffect } from "react";
 
 function Nav() {
   function handleLogOut() {
@@ -9,6 +11,13 @@ function Nav() {
     setUser(null);
   }
 
+  const [unique, setUnique] = useState(getUser());
+  useEffect(() => {
+    unique;
+  }, []);
+
+  console.log(unique.entryType);
+
   return (
     <nav>
       <div className="navContainer">
@@ -16,9 +25,15 @@ function Nav() {
           <Link to="/">Home</Link>
         </div>
         &nbsp; | &nbsp;
-        <div className="tab">
-          <Link to="/jobpostpage">Job Post</Link>
-        </div>
+        {unique.entryType === "employer" ? (
+          <>
+            <div className="tab">
+              <Link to="/jobpostpage">Job Post</Link>
+            </div>
+          </>
+        ) : (
+          <></>
+        )}
         &nbsp; | &nbsp;
         <div className="tab">
           <Link to="/jobfeed">Job Feed</Link>
