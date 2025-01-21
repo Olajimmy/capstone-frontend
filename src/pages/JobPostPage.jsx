@@ -200,185 +200,184 @@ function JobPostPage() {
           listStyleType: "none",
           display: "flex",
           flexDirection: "column",
-          border: "1px solid white",
+          border: "1px solid black",
         }}
       >
         {" "}
         <h3>Job Post History</h3>
-        {freshId}
         {entries.map((entry) => {
           return (
             <>
               {currentUser.email === entry.email ? (
+                // <li key={entry._id} className="jobPostList">
+                //   {entry.jobType}: {entry.jobDescription} - {entry.payRange}
+                //   <button
+                //     onClick={() => setEditingData(entry)}
+                //     className="editDelete"
+                //   >
+                //     Edit
+                //   </button>
+                //   {editingData._id === entry._id && (
+                //     <form>
+                //       <label
+                //         style={{
+                //           border: "1px solid black",
+                //           backgroundColor: "blue",
+                //         }}
+                //       >
+                //         Job Type:
+                //       </label>
+
+                //       <input
+                //         type="text"
+                //         name="jobType"
+                //         onChange={handleEditChange}
+                //         value={textData.jobType}
+                //       />
+                //       <br />
+                //       <label className="JobPostLabel">Job Description</label>
+
+                //       <input
+                //         type="text"
+                //         name="jobDescription"
+                //         onChange={handleEditChange}
+                //         value={textData.jobDescription}
+                //       />
+                //       <br />
+                //       <label className="JobPostLabel">Pay Range</label>
+
+                //       <input
+                //         type="text"
+                //         name="payRange"
+                //         onChange={handleEditChange}
+                //         value={textData.payRange}
+                //       />
+                //       <br />
+                //       <label className="JobPostLabel">Comments</label>
+
+                //       <input
+                //         type="text"
+                //         name="comments"
+                //         onChange={handleEditChange}
+                //         value={textData.comments}
+                //       />
+                //       <br />
+                //       <label className="JobPostLabel">Business Address</label>
+
+                //       <input
+                //         type="text"
+                //         name="businessAddress"
+                //         onChange={handleEditChange}
+                //         value={textData.businessAddress}
+                //       />
+                //       <br />
+                //       <label className="JobPostLabel">Phone Number</label>
+
+                //       <input
+                //         type="text"
+                //         name="phone"
+                //         onChange={handleEditChange}
+                //         value={textData.phone}
+                //       />
+                //       <br />
+                //       <br />
+                //       <button onClick={(e) => saveEntry(e, entry._id, entry)}>
+                //         Save
+                //       </button>
+                //     </form>
+                //   )}
+                //   <button
+                //     className="editDelete"
+                //     onClick={(e) => handleDelete(e, entry._id)}
+                //   >
+                //     Delete
+                //   </button>
+                // </li>
+
                 <li key={entry._id} className="jobPostList">
-                  {entry.jobType}: {entry.jobDescription} - {entry.payRange}
-                  <button onClick={editAction}>Edit</button>
+                  <div className="jobPostDetails">
+                    <p className="jobDescription">
+                      {entry.jobType}: {entry.jobDescription} - {entry.payRange}
+                    </p>
+                    <button
+                      onClick={() => setEditingData(entry)}
+                      className="editDelete"
+                    >
+                      Edit
+                    </button>
+                  </div>
                   {editingData._id === entry._id && (
-                    <form>
-                      <label>Job Type:</label>
-                      {/* <input
-                        type="text"
-                        name="jobType"
-                        value={editingData.jobType || entry.jobType}
-                        onChange={handleEditChange}
-                      /> */}
+                    <form className="editForm">
+                      <label className="jobPostLabel">Job Type:</label>
                       <input
                         type="text"
                         name="jobType"
                         onChange={handleEditChange}
                         value={textData.jobType}
+                        className="jobPostInput"
                       />
                       <br />
-                      <label>Job Description</label>
-
+                      <label className="jobPostLabel">Job Description</label>
                       <input
                         type="text"
                         name="jobDescription"
                         onChange={handleEditChange}
                         value={textData.jobDescription}
+                        className="jobPostInput"
                       />
                       <br />
-                      <label>Pay Range</label>
-
+                      <label className="jobPostLabel">Pay Range</label>
                       <input
                         type="text"
                         name="payRange"
                         onChange={handleEditChange}
                         value={textData.payRange}
+                        className="jobPostInput"
                       />
                       <br />
-                      <label>Comments</label>
-
+                      <label className="jobPostLabel">Comments</label>
                       <input
                         type="text"
                         name="comments"
                         onChange={handleEditChange}
                         value={textData.comments}
+                        className="jobPostInput"
                       />
                       <br />
-                      <label>Business Address</label>
-
+                      <label className="jobPostLabel">Business Address</label>
                       <input
                         type="text"
                         name="businessAddress"
                         onChange={handleEditChange}
                         value={textData.businessAddress}
+                        className="jobPostInput"
                       />
                       <br />
-                      <label>Phone Number</label>
-
+                      <label className="jobPostLabel">Phone Number</label>
                       <input
                         type="text"
                         name="phone"
                         onChange={handleEditChange}
                         value={textData.phone}
+                        className="jobPostInput"
                       />
                       <br />
-                      <br />
-                      <button onClick={(e) => saveEntry(e, entry._id, entry)}>
+                      <button
+                        className="saveButton"
+                        onClick={(e) => saveEntry(e, entry._id, entry)}
+                      >
                         Save
                       </button>
                     </form>
                   )}
-                  <button onClick={(e) => handleDelete(e, entry._id)}>
+                  <button
+                    className="editDelete"
+                    onClick={(e) => handleDelete(e, entry._id)}
+                  >
                     Delete
                   </button>
                 </li>
               ) : null}
-              {/* {currentUser.email === entry.email ? (
-                <>
-                  {" "}
-                  <li key={entry._id} style={{ border: "1px solid white" }}>
-                    {entry.jobType}: {entry.jobDescription} : {entry.payRange}
-                    <button onClick={() => editAction(entry._id)}>
-                      {editButton === false && freshId === currentUser._id
-                        ? "Edit"
-                        : "Hide"}
-                    </button>
-                    {}
-                    {editButton === true ? (
-                      <>
-                        <form>
-                          <label>Job type</label>
-                          <input
-                            type="text"
-                            name="jobType"
-                            onChange={handleEditChange}
-                            value={textData.jobType}
-                          />
-                          <br />
-                          <label>Job Description</label>
-
-                          <input
-                            type="text"
-                            name="jobDescription"
-                            onChange={handleEditChange}
-                            value={textData.jobDescription}
-                          />
-                          <br />
-                          <label>Pay Range</label>
-
-                          <input
-                            type="text"
-                            name="payRange"
-                            onChange={handleEditChange}
-                            value={textData.payRange}
-                          />
-                          <br />
-                          <label>Comments</label>
-
-                          <input
-                            type="text"
-                            name="comments"
-                            onChange={handleEditChange}
-                            value={textData.comments}
-                          />
-                          <br />
-                          <label>Business Address</label>
-
-                          <input
-                            type="text"
-                            name="businessAddress"
-                            onChange={handleEditChange}
-                            value={textData.businessAddress}
-                          />
-                          <br />
-                          <label>Phone Number</label>
-
-                          <input
-                            type="text"
-                            name="phone"
-                            onChange={handleEditChange}
-                            value={textData.phone}
-                          />
-                          <br />
-                          <button
-                            onClick={(e) => {
-                              saveEntry(e, entry._id);
-                            }}
-                          >
-                            Save
-                          </button>
-                        </form>
-                      </>
-                    ) : (
-                      <></>
-                    )}
-                    <button
-                      onClick={(e) => {
-                        handleHired(e, entry._id);
-                      }}
-                    >
-                      Hired
-                    </button>
-                    <button onClick={(e) => handleDelete(e, entry._id)}>
-                      Delete
-                    </button>
-                  </li>
-                </>
-              ) : (
-                <></>
-              )} */}
             </>
           );
         })}
@@ -392,12 +391,182 @@ function JobPostPage() {
     <>
       <h2>Job Post Page</h2>
       {currentUser.email}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between", // Ensures the two sections (form and entries list) are spaced out
+          border: "1px solid black",
+          padding: "10px", // Adding padding to ensure some space around the elements
+        }}
+      >
+        {/* Add a new Job Section */}
+        <div
+          style={{
+            border: "1px solid black",
+            padding: "10px", // Padding for better spacing
+            flex: 1, // This ensures the form takes up available space
+            marginRight: "20px", // Adds spacing between the form and the entries section
+          }}
+        >
+          <h3>Add a new Job</h3>
+          <form onSubmit={handleSubmit}>
+            <label
+              style={{
+                border: "1px solid black",
+                display: "flex",
+                justifyContent: "space-between",
+                padding: "5px", // Adds some padding for better alignment of label/input pairs
+                marginBottom: "10px", // Adds space between form fields
+              }}
+            >
+              <strong>Job Type</strong>
+              <input
+                type="text"
+                name="jobType"
+                required
+                onChange={handleChange}
+                value={formData.jobType}
+                placeholder="enter type of job"
+                style={{ width: "70%", padding: "5px" }} // Adjust input width and padding for consistency
+              />
+            </label>
+            <label
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                marginBottom: "10px", // Adds space between form fields
+              }}
+            >
+              <strong>Job Description</strong>
+              <input
+                type="text"
+                name="jobDescription"
+                placeholder="enter job description"
+                value={formData.jobDescription}
+                onChange={handleChange}
+                style={{ width: "70%", padding: "5px" }}
+              />
+            </label>
+            <label
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                marginBottom: "10px",
+              }}
+            >
+              <strong>Pay Rate</strong>
+              <input
+                type="text"
+                name="payRange"
+                required
+                onChange={handleChange}
+                placeholder="enter pay range"
+                value={formData.payRange}
+                style={{ width: "70%", padding: "5px" }}
+              />
+            </label>
+            <label
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                marginBottom: "10px",
+              }}
+            >
+              <strong> Comment</strong>
+              <input
+                type="text"
+                name="comments"
+                required
+                onChange={handleChange}
+                placeholder="enter extra comment"
+                value={formData.comments}
+                style={{ width: "70%", padding: "5px" }}
+              />
+            </label>
+            <label
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                marginBottom: "10px",
+              }}
+            >
+              <strong> Business Address</strong>
+              <input
+                type="text"
+                name="businessAddress"
+                required
+                onChange={handleChange}
+                placeholder="enter business address"
+                value={formData.businessAddress}
+                style={{ width: "70%", padding: "5px" }}
+              />
+            </label>
+            <label
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                marginBottom: "10px",
+              }}
+            >
+              <strong> Phone</strong>
+              <input
+                type="number"
+                name="phone"
+                onChange={handleChange}
+                value={formData.phone}
+                placeholder="enter phone number"
+                style={{ width: "70%", padding: "5px" }}
+              />
+            </label>{" "}
+            <input
+              type="submit"
+              value="Post Job"
+              style={{
+                backgroundColor: "#4CAF50", // Green background
+                color: "white", // White text color
+                padding: "10px 15px", // Padding for the button
+                border: "none", // Removes border
+                cursor: "pointer", // Changes cursor on hover
+                width: "100%", // Makes the button take the full width
+                fontWeight: "bold",
+              }}
+            />
+          </form>
+          <p>{update}</p>
+        </div>
 
-      <div style={{ display: "flex", border: "1px solid black" }}>
+        {/* Entries List Section */}
+        <div
+          style={{
+            flex: 1, // Ensures the entries section also takes available space
+            display: "flex",
+            flexDirection: "column", // Stacks the entries vertically
+            justifyContent: "flex-start", // Aligns the list to the top
+            paddingLeft: "20px", // Adds space between the form and the entries
+          }}
+        >
+          {entries.length ? loaded() : loading()}
+        </div>
+      </div>
+
+      {/* 
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          border: "1px solid black",
+        }}
+      >
         <div style={{ border: "1px solid black" }}>
           <h3>Add a new Job</h3>
           <form onSubmit={handleSubmit}>
-            <label>
+            <label
+              style={{
+                border: "1px solid black",
+                display: "flex",
+                justifyContent: "space-between",
+              }}
+            >
               Job Type
               <input
                 type="text"
@@ -466,8 +635,10 @@ function JobPostPage() {
           </form>
           <p>{update}</p>
         </div>
-        <div>{entries.length ? loaded() : loading()}</div>
-      </div>
+        <div style={{ justifyItems: "flex-end" }}>
+          {entries.length ? loaded() : loading()}
+        </div>
+      </div> */}
     </>
   );
 }

@@ -439,5 +439,146 @@ h3 {
 }
 .jobPostList {
   border: 1px solid black;
-  width: 700px;
+  /* width: 1000px; */
+}
+.jobPostLabel {
+  border: "1px solid black";
+  background-color: blue;
+}
+/* .editDelete {
+  float: right;
+} */
+/* Styles for the Job Post List */
+.jobPostList {
+  background-color: #f4f4f4; /* Light gray background */
+  border: 1px solid #ddd; /* Light border for each post */
+  margin: 10px 0; /* Space between posts */
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.jobPostDetails {
+  display: flex;
+  justify-content: space-between;
+  width: 80%; /* Adjusts the width to ensure the buttons align correctly */
+}
+
+.jobDescription {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.editDelete {
+  background-color: #007bff; /* Blue color for edit and delete buttons */
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-left: 10px;
+}
+
+.editDelete:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.editForm {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #e9ecef; /* Light gray background for the form */
+  border: 1px solid #ddd; /* Border around the form */
+  border-radius: 5px;
+}
+
+.jobPostLabel {
+  display: block;
+  margin: 5px 0;
+  font-weight: bold;
+}
+
+.jobPostInput {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.saveButton {
+  background-color: #28a745; /* Green color for the save button */
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.saveButton:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+/* new */
+/* Basic reset and styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Nav bar container */
+nav {
+  background-color: #333; /* Dark background for the nav */
+  padding: 15px 0;
+}
+
+/* Main navigation wrapper */
+nav div {
+  display: flex;
+  justify-content: center; /* Center the items */
+  align-items: center;
+  gap: 20px; /* Space between the items */
+}
+
+/* Each navigation link */
+nav a {
+  color: white; /* White text */
+  text-decoration: none; /* Remove underline */
+  padding: 10px 20px; /* Add padding around the text */
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover transition */
+}
+
+/* Hover effect */
+nav a:hover {
+  background-color: #007bff; /* Light blue background on hover */
+  color: white; /* Keep the text color white */
+}
+
+/* Link for "Sign Out" button */
+nav a[onClick] {
+  background-color: #dc3545; /* Red color for sign out */
+  padding: 12px 18px;
+}
+
+nav a[onClick]:hover {
+  background-color: #c82333; /* Darker red when hovered */
+}
+
+/* Optional: Style for larger screen view */
+@media screen and (max-width: 768px) {
+  nav div {
+    flex-direction: column; /* Stack the items vertically on smaller screens */
+    gap: 10px;
+  }
 }

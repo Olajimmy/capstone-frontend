@@ -20,29 +20,29 @@ function Nav() {
 
   return (
     <nav>
-      <div className="navContainer">
-        <div className="tab">
+      <div>
+        <div>
           <Link to="/">Home</Link>
         </div>
-        &nbsp; | &nbsp;
+
         {unique.entryType === "employer" ? (
           <>
-            <div className="tab">
+            <div>
               <Link to="/jobpostpage">Job Post</Link>
             </div>
           </>
         ) : (
           <></>
         )}
-        &nbsp; | &nbsp;
-        <div className="tab">
+
+        <div>
           <Link to="/jobfeed">Job Feed</Link>
         </div>
-        &nbsp; | &nbsp;
-        <div className="tab">
+
+        <div>
           <Link to="/profilepage">Profile</Link>
         </div>
-        <div className="tab">
+        <div>
           <Link to="" onClick={handleLogOut}>
             Sign Out
           </Link>
