@@ -23,7 +23,7 @@ function JobPostPage() {
     jobType: "",
   });
 
-  const [update, setUpdate] = useState("nothing changed");
+  const [update, setUpdate] = useState("");
   //const [entType, setEntType] = useState("");
   const LOCAL_URL = `http://localhost:5050`;
 
@@ -61,9 +61,7 @@ function JobPostPage() {
       } else {
         //once i actually implement the post route in my backend, i will show added entry
 
-        setUpdate(
-          `successfully added:, ${addedEntry.jobType} - ${addedEntry.jobDescription} -id: ${addedEntry._id}`
-        );
+        setUpdate(`Job successfully added to the Database`);
         console.log(
           `${addedEntry.jobType} - ${addedEntry.jobDescription} -id: ${addedEntry._id}`
         );
@@ -200,100 +198,15 @@ function JobPostPage() {
           listStyleType: "none",
           display: "flex",
           flexDirection: "column",
-          border: "1px solid black",
+          border: "0px solid black",
         }}
       >
         {" "}
-        <h3>Job Post History</h3>
+        <h3>What You Have Posted So Far</h3>
         {entries.map((entry) => {
           return (
             <>
               {currentUser.email === entry.email ? (
-                // <li key={entry._id} className="jobPostList">
-                //   {entry.jobType}: {entry.jobDescription} - {entry.payRange}
-                //   <button
-                //     onClick={() => setEditingData(entry)}
-                //     className="editDelete"
-                //   >
-                //     Edit
-                //   </button>
-                //   {editingData._id === entry._id && (
-                //     <form>
-                //       <label
-                //         style={{
-                //           border: "1px solid black",
-                //           backgroundColor: "blue",
-                //         }}
-                //       >
-                //         Job Type:
-                //       </label>
-
-                //       <input
-                //         type="text"
-                //         name="jobType"
-                //         onChange={handleEditChange}
-                //         value={textData.jobType}
-                //       />
-                //       <br />
-                //       <label className="JobPostLabel">Job Description</label>
-
-                //       <input
-                //         type="text"
-                //         name="jobDescription"
-                //         onChange={handleEditChange}
-                //         value={textData.jobDescription}
-                //       />
-                //       <br />
-                //       <label className="JobPostLabel">Pay Range</label>
-
-                //       <input
-                //         type="text"
-                //         name="payRange"
-                //         onChange={handleEditChange}
-                //         value={textData.payRange}
-                //       />
-                //       <br />
-                //       <label className="JobPostLabel">Comments</label>
-
-                //       <input
-                //         type="text"
-                //         name="comments"
-                //         onChange={handleEditChange}
-                //         value={textData.comments}
-                //       />
-                //       <br />
-                //       <label className="JobPostLabel">Business Address</label>
-
-                //       <input
-                //         type="text"
-                //         name="businessAddress"
-                //         onChange={handleEditChange}
-                //         value={textData.businessAddress}
-                //       />
-                //       <br />
-                //       <label className="JobPostLabel">Phone Number</label>
-
-                //       <input
-                //         type="text"
-                //         name="phone"
-                //         onChange={handleEditChange}
-                //         value={textData.phone}
-                //       />
-                //       <br />
-                //       <br />
-                //       <button onClick={(e) => saveEntry(e, entry._id, entry)}>
-                //         Save
-                //       </button>
-                //     </form>
-                //   )}
-                //   <button
-                //     className="editDelete"
-                //     onClick={(e) => handleDelete(e, entry._id)}
-                //   >
-                //     Delete
-                //   </button>
-                // </li>
-
                 <li key={entry._id} className="jobPostList">
                   <div className="jobPostDetails">
                     <p className="jobDescription">
@@ -371,7 +284,7 @@ function JobPostPage() {
                     </form>
                   )}
                   <button
-                    className="editDelete"
+                    className="editDe"
                     onClick={(e) => handleDelete(e, entry._id)}
                   >
                     Delete
@@ -389,20 +302,21 @@ function JobPostPage() {
   //
   return (
     <>
-      <h2>Job Post Page</h2>
-      {currentUser.email}
+      <div style={{ marginBottom: "30px" }}>
+        <h2>Welcome to Job Post Page</h2>
+      </div>
       <div
         style={{
           display: "flex",
           justifyContent: "space-between", // Ensures the two sections (form and entries list) are spaced out
-          border: "1px solid black",
+          border: "0px solid black",
           padding: "10px", // Adding padding to ensure some space around the elements
         }}
       >
         {/* Add a new Job Section */}
         <div
           style={{
-            border: "1px solid black",
+            border: "0px solid black",
             padding: "10px", // Padding for better spacing
             flex: 1, // This ensures the form takes up available space
             marginRight: "20px", // Adds spacing between the form and the entries section
@@ -412,7 +326,8 @@ function JobPostPage() {
           <form onSubmit={handleSubmit}>
             <label
               style={{
-                border: "1px solid black",
+                backgroundColor: "#78a1bb",
+                border: "0px solid black",
                 display: "flex",
                 justifyContent: "space-between",
                 padding: "5px", // Adds some padding for better alignment of label/input pairs
@@ -432,6 +347,9 @@ function JobPostPage() {
             </label>
             <label
               style={{
+                border: "0px solid black",
+                padding: "5px",
+                backgroundColor: "#78a1bb",
                 display: "flex",
                 justifyContent: "space-between",
                 marginBottom: "10px", // Adds space between form fields
@@ -449,7 +367,10 @@ function JobPostPage() {
             </label>
             <label
               style={{
+                border: "0px solid black",
+                padding: "5px",
                 display: "flex",
+                backgroundColor: "#78a1bb",
                 justifyContent: "space-between",
                 marginBottom: "10px",
               }}
@@ -467,7 +388,10 @@ function JobPostPage() {
             </label>
             <label
               style={{
+                border: "0px solid black",
+                padding: "5px",
                 display: "flex",
+                backgroundColor: "#78a1bb",
                 justifyContent: "space-between",
                 marginBottom: "10px",
               }}
@@ -485,7 +409,10 @@ function JobPostPage() {
             </label>
             <label
               style={{
+                border: "0px solid black",
+                padding: "5px",
                 display: "flex",
+                backgroundColor: "#78a1bb",
                 justifyContent: "space-between",
                 marginBottom: "10px",
               }}
@@ -503,7 +430,10 @@ function JobPostPage() {
             </label>
             <label
               style={{
+                border: "0px solid black",
+                padding: "5px",
                 display: "flex",
+                backgroundColor: "#78a1bb",
                 justifyContent: "space-between",
                 marginBottom: "10px",
               }}

@@ -8,6 +8,7 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import "./App.css";
 import { getUser } from "./utilities/users-services";
+import Welcome from "./pages/Welcome";
 
 function App() {
   const [user, setUser] = useState(getUser());
@@ -15,15 +16,35 @@ function App() {
   return (
     <>
       <div className="mainHeader">
-        <h1>Capstone Project</h1>
+        <h2 style={{ color: "white" }}>Job Search</h2>
       </div>
 
       {user && user.entryType === "employer" ? (
         <>
           <Nav />
-          <div>{user.name}</div>
-          <div>Welcome</div>
+          <div
+            style={{
+              border: "1px solid black",
+              display: "flex",
+              justifyContent: "flex-end",
+              padding: "10px",
+            }}
+          >
+            <div
+              style={{
+                border: "1px solid black",
+                width: "80px",
+                padding: "5px",
+                textAlign: "center",
+                backgroundColor: "#e8eddf",
+                borderRadius: "5px",
+              }}
+            >
+              {user.name}
+            </div>
+          </div>
           <Routes>
+            <Route path="/" element={<Welcome />} />
             <Route path="/jobfeed" element={<JobFeed />} />
             <Route path="/jobpostpage" element={<JobPostPage />} />
             <Route

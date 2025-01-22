@@ -31,7 +31,23 @@ nav {
 .mainHeader {
   border: 1px solid black;
   background-color: #34729e;
+  display: flex;
 }
+/* .outerCont {
+  border: "1px solid black";
+  display: flex;
+  justify-content: "flex-end";
+  padding: "10px";
+}
+.innerCont {
+  border: "1px solid black";
+  width: "80px";
+  padding: "5px";
+  text-align: "center";
+  background-color: "#f4f4f4";
+  border-radius: "5px";
+} */
+
 .footer {
   border: 1px solid black;
   background-color: #013a63;
@@ -443,7 +459,7 @@ h3 {
 }
 .jobPostLabel {
   border: "1px solid black";
-  background-color: blue;
+  background-color: #78a1bb;
 }
 /* .editDelete {
   float: right;
@@ -481,9 +497,22 @@ h3 {
   font-size: 0.9rem;
   margin-left: 10px;
 }
+.editDe {
+  background-color: #007bff; /* Blue color for edit and delete buttons */
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-left: 10px;
+}
 
 .editDelete:hover {
   background-color: #0056b3; /* Darker blue on hover */
+}
+.editDe:hover {
+  background-color: #cc2936; /* Red on hover */
 }
 
 .editForm {
@@ -522,11 +551,6 @@ h3 {
 }
 /* new */
 /* Basic reset and styling */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 body {
   font-family: Arial, sans-serif;
@@ -536,7 +560,7 @@ body {
 
 /* Nav bar container */
 nav {
-  background-color: #333; /* Dark background for the nav */
+  background-color: #78a1bb; /* Dark background for the nav */
   padding: 15px 0;
 }
 
@@ -561,8 +585,8 @@ nav a {
 
 /* Hover effect */
 nav a:hover {
-  background-color: #007bff; /* Light blue background on hover */
-  color: white; /* Keep the text color white */
+  background-color: #bfd7ea; /* Light blue background on hover */
+  color: Black; /* Keep the text color white */
 }
 
 /* Link for "Sign Out" button */
@@ -581,4 +605,7 @@ nav a[onClick]:hover {
     flex-direction: column; /* Stack the items vertically on smaller screens */
     gap: 10px;
   }
+}
+.welcomePage {
+  border: 1px solid black;
 }

@@ -130,7 +130,6 @@ function SignUpForm(props) {
     password: "",
     confirm: "",
     entryType: "", //entType || "None",
-    myFile: "",
   });
   const [error, setError] = useState("");
   const [entType, setEntType] = useState("");
@@ -157,33 +156,8 @@ function SignUpForm(props) {
 
   const handleTypeSelect = (e) => {
     setEntType(e.target.value);
+    console.log(entType);
   };
-
-  //image upload
-
-  const handleFileUpload = async (e) => {
-    const file = e.target.files[0];
-    const base63 = await convertToBase64(file);
-    const base64 = await base63;
-    console.log(file);
-    console.log(base64);
-    setFormData({ myFile: base64 });
-  };
-  //
-  function convertToBase64(file) {
-    return new Promise((resolve, reject) => {
-      const fileReader = new FileReader();
-      fileReader.readAsDataURL(file);
-      fileReader.onload = () => {
-        resolve(fileReader.result);
-      };
-      fileReader.onerror = (error) => {
-        reject(error);
-      };
-    });
-  }
-
-  //
 
   return (
     <div className="signUpContainer">
@@ -235,16 +209,6 @@ function SignUpForm(props) {
             <option value="employee">I Need a Job</option>
             <option value="employer">I Need a Worker</option>
           </select>
-
-          <label>Profile Picture:</label>
-          <input
-            type="file"
-            name="myFile"
-            id="file-upload"
-            accept=".jpeg, .png, .jpg"
-            value={formData.img}
-            onChange={(e) => handleFileUpload(e)}
-          />
 
           <button
             type="submit"

@@ -64,35 +64,59 @@ function ProfilePage() {
 
         {/* User Profile Information */}
         <div className="profile-info">
-          <div className="profile-picture">
-            <img
-              src={unique.profilePicture || "https://via.placeholder.com/150"}
-              alt="Profile"
-              className="profile-img"
-            />
-          </div>
-
           <div className="profile-details">
-            <p>
+            <label
+              style={{
+                border: "0px solid black",
+                padding: "5px",
+                display: "flex",
+                justifyContent: "space-between",
+                marginBottom: "10px",
+              }}
+            >
+              {" "}
               <strong>Name:</strong> {unique.name}
-            </p>
-            <p>
+            </label>
+            <br />
+            <label
+              style={{
+                border: "0px solid black",
+                padding: "5px",
+                display: "flex",
+                justifyContent: "space-between",
+                marginBottom: "10px",
+              }}
+            >
+              {" "}
               <strong>Email:</strong> {unique.email}
-            </p>
-            <p>
-              <strong>User ID:</strong> {unique._id}
-            </p>
-            <p>
+            </label>
+            <br />
+            <label
+              style={{
+                border: "0px solid black",
+                padding: "5px",
+                display: "flex",
+                justifyContent: "space-between",
+                marginBottom: "10px",
+              }}
+            >
+              {" "}
+              <strong>User Id:</strong> {unique._id}
+            </label>
+            <br />
+            <label
+              style={{
+                border: "0px solid black",
+                padding: "5px",
+                display: "flex",
+                justifyContent: "space-between",
+                marginBottom: "10px",
+              }}
+            >
+              {" "}
               <strong>Status:</strong> {unique.entryType}
-            </p>
+            </label>
           </div>
-        </div>
-
-        {/* Image Upload Section */}
-        <div className="image-upload">
-          <h3>Change Profile Picture</h3>
-          <input type="file" onChange={handleChange} />
-          <button onClick={uploadPicture}>Upload Picture</button>
         </div>
       </div>
     </>
