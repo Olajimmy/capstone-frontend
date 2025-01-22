@@ -59,6 +59,7 @@ function App() {
           <div>{user.name}</div>
           <div>Welcome</div>
           <Routes>
+            <Route path="/" element={<Welcome />} />
             <Route path="/jobfeed" element={<JobFeed />} />
 
             <Route

@@ -12,7 +12,6 @@ function AuthPage(props) {
 
   return (
     <>
-      <div> Auth page</div>
       <h1>Sign Up or Login</h1>
       <>
         {signup ? (
@@ -21,7 +20,7 @@ function AuthPage(props) {
           <LoginForm setUser={props.setUser} />
         )}
       </>
-      <h2>OR go here to{signup ? "login" : "Register"}</h2>
+      <h2>Click Here to {signup ? "Login" : "Register"}</h2>
       <button onClick={togglePage}>{signup ? "login" : "Register"}</button>
     </>
   );
