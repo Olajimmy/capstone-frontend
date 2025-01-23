@@ -24,7 +24,7 @@ function App() {
           <Nav />
           <div
             style={{
-              border: "1px solid black",
+              border: "0px solid black",
               display: "flex",
               justifyContent: "flex-end",
               padding: "10px",
@@ -32,7 +32,7 @@ function App() {
           >
             <div
               style={{
-                border: "1px solid black",
+                border: "0px solid black",
                 width: "80px",
                 padding: "5px",
                 textAlign: "center",

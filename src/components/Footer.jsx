@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <>
-      <div className="footer">Footer</div>
+      <div className="footer">Job Search Other Links Would Go Here</div>
     </>
   );
 }

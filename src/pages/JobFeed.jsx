@@ -7,11 +7,12 @@ function JobFeed() {
   const [loadingState, setLoadingState] = useState(false); // Optional loading state
 
   const LOCAL_URL = `http://localhost:5050`;
+  const deployedVariable = `https://capstone-backend-1hvk.onrender.com`;
 
   const getEntries = async () => {
     setLoadingState(true); // Set loading to true before making API call
     try {
-      const response = await axios.get(`${LOCAL_URL}/api/jobpost`);
+      const response = await axios.get(`${deployedVariable}/api/jobpost`);
       setEntries(response.data);
       setLoadingState(false); // Set loading to false after API call is done
     } catch (err) {
@@ -45,7 +46,11 @@ function JobFeed() {
           <div className="job-post" key={entry._id}>
             <div className="job-info">
               <h3>{entry.jobType}</h3>
-              <p>{entry.jobDescription}</p>
+              <br />
+              <p>
+                <strong>Description: </strong>
+                {entry.jobDescription}
+              </p>
               <p>
                 <strong>Pay Range:</strong> {entry.payRange}
               </p>

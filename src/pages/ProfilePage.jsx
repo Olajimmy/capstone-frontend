@@ -8,11 +8,12 @@ function ProfilePage() {
   const [picture, setPicture] = useState(null);
 
   const LOCAL_URL = `http://localhost:5050`;
+  const deployedVariable = `https://capstone-backend-1hvk.onrender.com`;
 
   const getEntries = async () => {
     console.log(`Fetching entries...`);
     try {
-      const response = await axios.get(`${LOCAL_URL}/api/users/`);
+      const response = await axios.get(`${deployedVariable}/api/users/`);
       console.log("response.data", response.data);
       setEntries(response.data);
       setUnique(getUser());
@@ -38,7 +39,7 @@ function ProfilePage() {
       formData.append("image", picture);
 
       const response = await axios.put(
-        `${LOCAL_URL}/api/users/upload`,
+        `${deployedVariable}/api/users/upload`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -124,76 +125,3 @@ function ProfilePage() {
 }
 
 export default ProfilePage;
-
-//
-
-// import { useState, useEffect } from "react";
-// import axios from "axios";
-// import { getUser, signUp } from "../utilities/users-services";
-
-// function ProfilePage() {
-//   const [entries, setEntries] = useState([]);
-//   const [unique, setUnique] = useState({});
-
-//   const [update, setUpdate] = useState("");
-
-//   const LOCAL_URL = `http://localhost:5050`;
-//   //
-
-//   const getEntries = async () => {
-//     console.log(`in getEntries`);
-//     //fetch calendar entries from the back end
-//     //aslo known as the api that i an creating
-//     //this endpoint is:
-//     // /api/calendar
-
-//     try {
-//       const response = await axios.get(`${LOCAL_URL}/api/users/`);
-//       console.log("response.data", response.data);
-//       setEntries(response.data);
-//       setUnique(getUser());
-//       console.log(unique.email);
-//     } catch (err) {
-//       console.error(err);
-//     }
-//   };
-
-//   const handleChange = async (e) => {
-//     setPicture(e.target.value);
-//   };
-//   //
-
-//   // const upload = async (e) => {
-//   //   try {
-//   //     const response = await axios.put(`${LOCAL_URL}/api/users/`, picture);
-//   //     console.log("response.data", response.data);
-//   //     setEntries(response.data);
-//   //     // setUnique(getUser());
-//   //     console.log(unique.email);
-//   //   } catch (err) {
-//   //     console.error(err);
-//   //   }
-//   // };
-
-//   useEffect(() => {
-//     getEntries();
-//   }, [update]);
-
-//   return (
-//     <>
-//       <div className="profileContainer">
-//         <h2>Welcome To Your Profile Page</h2>
-//         <br />
-//         Name: {unique.name}
-//         <br />
-//         Email: {unique.email}
-//         <br />
-//         User Id: {unique._id}
-//         <br />
-//         <img src="C:\fakepath\pokemon.png" />
-//       </div>
-//       <button></button>
-//     </>
-//   );
-// }
-// export default ProfilePage;

@@ -12,7 +12,7 @@ function AuthPage(props) {
 
   return (
     <>
-      <h1>Sign Up or Login</h1>
+      <h1>Welcome to Job Search</h1>
       <>
         {signup ? (
           <SignUpForm setUser={props.setUser} />

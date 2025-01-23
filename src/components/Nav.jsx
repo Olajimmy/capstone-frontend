@@ -19,36 +19,39 @@ function Nav() {
   console.log(unique.entryType);
 
   return (
-    <nav>
-      <div>
+    <div>
+      {" "}
+      <nav>
         <div>
-          <Link to="/">Home</Link>
-        </div>
+          <div>
+            <Link to="/">Home</Link>
+          </div>
 
-        {unique.entryType === "employer" ? (
-          <>
-            <div>
-              <Link to="/jobpostpage">Job Post</Link>
-            </div>
-          </>
-        ) : (
-          <></>
-        )}
+          {unique.entryType === "employer" ? (
+            <>
+              <div>
+                <Link to="/jobpostpage">Job Post</Link>
+              </div>
+            </>
+          ) : (
+            <></>
+          )}
 
-        <div>
-          <Link to="/jobfeed">Job Feed</Link>
-        </div>
+          <div>
+            <Link to="/jobfeed">Job Feed</Link>
+          </div>
 
-        <div>
-          <Link to="/profilepage">Profile</Link>
+          <div>
+            <Link to="/profilepage">Profile</Link>
+          </div>
+          <div>
+            <Link to="" onClick={handleLogOut}>
+              Sign Out
+            </Link>
+          </div>
         </div>
-        <div>
-          <Link to="" onClick={handleLogOut}>
-            Sign Out
-          </Link>
-        </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
   );
 }
 export default Nav;

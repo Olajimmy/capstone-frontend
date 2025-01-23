@@ -5,7 +5,7 @@ function Welcome() {
     <>
       <div style={{ color: "black" }}>Welcome Page</div>
       <div className="welcomePage">
-        <img src={img} style={{ height: "500px", width: "100%" }} />
+        {/* <img src={img} style={{ height: "500px", width: "100%" }} /> */}
       </div>
     </>
   );

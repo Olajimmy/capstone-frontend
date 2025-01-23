@@ -14,9 +14,7 @@
   background-color: #01497c;
   height: 500px;
 }
-nav {
-  border: 1px solid black;
-}
+
 .navContainer {
   border: 1px solid black;
   display: flex;
@@ -29,29 +27,16 @@ nav {
   background-color: rgb(4, 0, 5);
 }
 .mainHeader {
-  border: 1px solid black;
+  border: 0px solid black;
   background-color: #34729e;
   display: flex;
 }
-/* .outerCont {
-  border: "1px solid black";
-  display: flex;
-  justify-content: "flex-end";
-  padding: "10px";
-}
-.innerCont {
-  border: "1px solid black";
-  width: "80px";
-  padding: "5px";
-  text-align: "center";
-  background-color: "#f4f4f4";
-  border-radius: "5px";
-} */
 
 .footer {
   border: 1px solid black;
   background-color: #013a63;
   height: 50px;
+  color: white;
 }
 .profileImg {
   border: 1px solid black;
@@ -587,6 +572,7 @@ nav a[onClick]:hover {
 }
 .welcomePage {
   border: 1px solid black;
+  height: 750px;
 }
 /* LoginForm.css */
 .login-form {

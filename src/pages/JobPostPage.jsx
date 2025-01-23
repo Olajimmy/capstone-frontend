@@ -26,6 +26,7 @@ function JobPostPage() {
   const [update, setUpdate] = useState("");
   //const [entType, setEntType] = useState("");
   const LOCAL_URL = `http://localhost:5050`;
+  const deployedVariable = `https://capstone-backend-1hvk.onrender.com`;
 
   const getEntries = async () => {
     console.log(`in getEntries`);
@@ -35,7 +36,7 @@ function JobPostPage() {
     // /api/calendar
 
     try {
-      const response = await axios.get(`${LOCAL_URL}/api/jobpost`);
+      const response = await axios.get(`${deployedVariable}/api/jobpost`);
       console.log("response.data", response.data);
       setEntries(response.data);
     } catch (err) {
@@ -47,7 +48,10 @@ function JobPostPage() {
     let error = false;
     let addedEntry = {};
     try {
-      const response = await axios.post(`${LOCAL_URL}/api/jobpost`, newEntry);
+      const response = await axios.post(
+        `${deployedVariable}/api/jobpost`,
+        newEntry
+      );
       addedEntry = response.data;
       console.log("addedEntry", response.data);
       setEntries(response.data);
@@ -77,7 +81,9 @@ function JobPostPage() {
 
   const deleteEntry = async (id) => {
     try {
-      const response = await axios.delete(`${LOCAL_URL}/api/jobpost/${id}`);
+      const response = await axios.delete(
+        `${deployedVariable}/api/jobpost/${id}`
+      );
       console.log(response);
       setUpdate(`deleted entry ${id} successfully `);
     } catch (err) {
@@ -89,7 +95,7 @@ function JobPostPage() {
   const handleHired = async (e, id) => {
     console.log("save is clicked:", id);
     try {
-      const response = await axios.get(`${LOCAL_URL}/api/jobpost/`);
+      const response = await axios.get(`${deployedVariable}/api/jobpost/`);
       //console.log("response in save", response.data);
 
       setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -167,13 +173,13 @@ function JobPostPage() {
     };
     try {
       const response = await axios.put(
-        `${LOCAL_URL}/api/jobpost/${id}`,
+        `${deployedVariable}/api/jobpost/${id}`,
         newValue
       );
       console.log(id);
 
       //setFormData();
-      setUpdate(`edited data ${id} successfully`);
+      setUpdate(`edited successfully`);
     } catch (err) {
       console.error(err);
       setUpdate(`edit failed`);
