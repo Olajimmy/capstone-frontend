@@ -9,6 +9,8 @@ import Footer from "./components/Footer";
 import "./App.css";
 import { getUser } from "./utilities/users-services";
 import Welcome from "./pages/Welcome";
+import logo3 from "./images/logo3.jpeg";
+import logo2 from "./images/logo2.jpeg";
 
 function App() {
   const [user, setUser] = useState(getUser());
@@ -16,7 +18,10 @@ function App() {
   return (
     <>
       <div className="mainHeader">
-        <h2 style={{ color: "white" }}>Job Search</h2>
+        <h2 style={{ color: "white" }}>
+          <img src={logo2} />
+          <img className="innerMainHeader" src={logo3} />
+        </h2>
       </div>
 
       {user && user.entryType === "employer" ? (

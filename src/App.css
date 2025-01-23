@@ -30,6 +30,12 @@
   border: 0px solid black;
   background-color: #34729e;
   display: flex;
+  padding-top: 8px;
+  padding-left: 8px;
+}
+.innerMainHeader {
+  border: 0px solid black;
+  padding-left: 10px;
 }
 
 .footer {
@@ -574,6 +580,7 @@ nav a[onClick]:hover {
   border: 1px solid black;
   height: 750px;
 }
+
 /* LoginForm.css */
 .login-form {
   width: 100%;
@@ -628,4 +635,120 @@ nav a[onClick]:hover {
 
 .submit-btn:hover {
   background-color: #0056b3;
+}
+/* welcome page */
+/* Welcome.css */
+
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Hero Section */
+.hero {
+  background-color: #005a8b; /* Blue color */
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+  background-image: url("hero-background.jpg"); /* Replace with your background image */
+  background-size: cover;
+  background-position: center;
+  border-bottom: 5px solid #ffa500; /* Orange line at the bottom */
+}
+
+.hero h1 {
+  font-size: 3.5em;
+  margin-bottom: 20px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.hero p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  color: #f0f0f0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Add some padding to the page */
+body {
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+  padding: 0 20px;
+  margin: 0;
+}
+
+/* Welcome Page Text */
+.welcomePage {
+  background-color: white;
+  color: #333;
+  text-align: left;
+  padding: 40px 20px;
+  margin: 40px auto;
+  max-width: 1000px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.welcomePage h2 {
+  font-size: 2.5em;
+  color: #005a8b;
+  margin-bottom: 20px;
+}
+
+.welcomePage p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* CTA Section */
+.welcomePage .cta-btn {
+  background-color: #ffa500;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.welcomePage .cta-btn:hover {
+  background-color: #e67e00; /* Darker orange on hover */
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5em;
+  }
+
+  .hero p {
+    font-size: 1.1em;
+  }
+
+  .welcomePage {
+    padding: 20px;
+    margin: 20px auto;
+  }
+
+  .welcomePage p {
+    font-size: 1em;
+  }
+
+  .welcomePage .cta-btn {
+    font-size: 1em;
+    padding: 12px 25px;
+  }
 }
