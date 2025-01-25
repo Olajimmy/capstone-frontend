@@ -11,6 +11,7 @@ import { getUser } from "./utilities/users-services";
 import Welcome from "./pages/Welcome";
 import logo3 from "./images/logo3.jpeg";
 import logo2 from "./images/logo2.jpeg";
+import Contact from "./pages/Contact";
 
 function App() {
   const [user, setUser] = useState(getUser());
@@ -50,6 +51,7 @@ function App() {
           </div>
           <Routes>
             <Route path="/" element={<Welcome />} />
+            <Route path="/contactus" element={<Contact />} />
             <Route path="/jobfeed" element={<JobFeed />} />
             <Route path="/jobpostpage" element={<JobPostPage />} />
             <Route

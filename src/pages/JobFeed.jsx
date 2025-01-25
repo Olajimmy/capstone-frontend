@@ -5,6 +5,7 @@ function JobFeed() {
   const [entries, setEntries] = useState([]);
   const [moreDetails, setMoreDetails] = useState(null); // To store details of the clicked job
   const [loadingState, setLoadingState] = useState(false); // Optional loading state
+  const [chatOpen, setChatOpen] = useState(false);
 
   const LOCAL_URL = `http://localhost:5050`;
   const deployedVariable = `https://capstone-backend-1hvk.onrender.com`;
@@ -38,6 +39,14 @@ function JobFeed() {
   const loading = () => {
     return <h3>No job entries available yet. Please check back later.</h3>;
   };
+  //
+  const handleChat = () => {
+    if (chatOpen === false) {
+      setChatOpen(true);
+    } else {
+      setChatOpen(false);
+    }
+  };
 
   const loaded = () => {
     return (
@@ -63,6 +72,7 @@ function JobFeed() {
                 ? "Hide Details"
                 : "Show More Details"}
             </button>
+
             {/* Conditionally render more details */}
             {moreDetails && moreDetails._id === entry._id && (
               <div className="extra-info">
@@ -87,6 +97,29 @@ function JobFeed() {
                 <p>
                   <strong>Phone:</strong> {moreDetails.phone}
                 </p>
+                <div style={{ border: "0px solid black" }}>
+                  {" "}
+                  <div style={{ display: "flex", justifySelf: "flex-end" }}>
+                    <button
+                      onClick={handleChat}
+                      style={{ background: "#56d44f" }}
+                    >
+                      Chat with Employer
+                    </button>
+                    {chatOpen ? (
+                      <>
+                        <input
+                          type="text"
+                          name="chat"
+                          placeholder="say something"
+                        />
+                        <button style={{ background: "#00aaed" }}>Send</button>
+                      </>
+                    ) : (
+                      <></>
+                    )}
+                  </div>
+                </div>
               </div>
             )}
           </div>

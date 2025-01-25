@@ -40,7 +40,9 @@ function Nav() {
           <div>
             <Link to="/jobfeed">Job Feed</Link>
           </div>
-
+          <div>
+            <Link to="/contactus">Contact Us</Link>
+          </div>
           <div>
             <Link to="/profilepage">Profile</Link>
           </div>
